@@ -56,12 +56,11 @@ fun TaskCard(
             .padding(horizontal = 16.dp, vertical = 8.dp)
             .clickable { onTaskClick() }
             .drawBehind {
-                // Draw the left colored line
                 drawLine(
                     color = lineColor,
                     start = Offset(8f, 0f),
                     end = Offset(8f, size.height),
-                    strokeWidth = 12.dp.toPx()
+                    strokeWidth = 10.dp.toPx()
                 )
             },
         colors = CardDefaults.cardColors(
