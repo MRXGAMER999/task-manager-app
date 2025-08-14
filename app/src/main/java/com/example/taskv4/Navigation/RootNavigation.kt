@@ -25,9 +25,8 @@ import com.example.taskv4.Screens.TaskDetailsScreen
 import com.example.taskv4.Screens.NewTaskScreen
 import com.example.taskv4.Screens.EditTaskScreen
 import com.example.taskv4.ViewModel.TaskViewModel
+import com.example.taskv4.preview.previewTaskViewModel
 import kotlinx.serialization.Serializable
-import android.app.Application
-import androidx.compose.ui.platform.LocalContext
 
 @Serializable
 data object MainScreenKey : NavKey
@@ -46,8 +45,7 @@ data class EditTaskScreenKey(val taskId: Int) : NavKey
 @Composable
 fun RootNavigation() {
     val backStack = rememberNavBackStack(MainScreenKey)
-    val context = LocalContext.current
-    val sharedViewModel = remember { TaskViewModel(context.applicationContext as Application) }
+    val sharedViewModel = remember { previewTaskViewModel() }
 
     NavDisplay(
         modifier = Modifier
