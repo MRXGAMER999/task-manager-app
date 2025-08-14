@@ -13,3 +13,7 @@
 .externalNativeBuild
 .cxx
 local.properties
+
+# Kotlin compile artifacts
+*.class
+META-INF/
