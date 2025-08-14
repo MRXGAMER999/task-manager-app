@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CopilotDiffPersistence">
+    <option name="pendingDiffs">
+      <map>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/example/taskv4/Components/SampleData.kt">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/app/src/main/java/com/example/taskv4/Components/SampleData.kt" />
+              <option name="updatedContent" value="package com.example.taskv4.Components&#10;&#10;import com.example.taskv4.Task&#10;&#10;fun getSampleTasks(): List&lt;Task&gt; {&#10;    return listOf(&#10;        Task(1, &quot;Grocery Shopping&quot;, &quot;High&quot;, false),&#10;        Task(2, &quot;Pay Bills&quot;, &quot;Medium&quot;, false),&#10;        Task(3, &quot;Book Doctor's Appointment&quot;, &quot;Low&quot;, false),&#10;        Task(4, &quot;Finish project report&quot;, &quot;High&quot;, true),&#10;        Task(5, &quot;Gym Workout&quot;, &quot;Medium&quot;, false),&#10;        Task(6, &quot;Read a chapter of a book&quot;, &quot;Low&quot;, false),&#10;        Task(7, &quot;Clean the house&quot;, &quot;High&quot;, false),&#10;        Task(8, &quot;Call dentist&quot;, &quot;Medium&quot;, false),&#10;        Task(9, &quot;Buy birthday gift&quot;, &quot;Low&quot;, false),&#10;        Task(10, &quot;Complete code review&quot;, &quot;High&quot;, true),&#10;        Task(11, &quot;Plan weekend trip&quot;, &quot;Medium&quot;, false),&#10;        Task(12, &quot;Water plants&quot;, &quot;Low&quot;, false),&#10;    )&#10;}" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
