@@ -14,6 +14,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.navigation3.runtime.NavEntry
 import androidx.navigation3.runtime.NavKey
@@ -21,8 +22,12 @@ import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.ui.NavDisplay
 import com.example.taskv4.Screens.MainScreen
 import com.example.taskv4.Screens.TaskDetailsScreen
+import com.example.taskv4.Screens.NewTaskScreen
+import com.example.taskv4.Screens.EditTaskScreen
 import com.example.taskv4.ViewModel.TaskViewModel
 import kotlinx.serialization.Serializable
+import android.app.Application
+import androidx.compose.ui.platform.LocalContext
 
 @Serializable
 data object MainScreenKey : NavKey
@@ -32,6 +37,8 @@ data object NewTaskScreenKey : NavKey
 
 @Serializable
 data class TaskDetailsScreenKey(val taskId: Int) : NavKey
+@Serializable
+data class EditTaskScreenKey(val taskId: Int) : NavKey
 
 @RequiresApi(Build.VERSION_CODES.VANILLA_ICE_CREAM)
 @SuppressLint("ViewModelConstructorInComposable")
@@ -39,7 +46,8 @@ data class TaskDetailsScreenKey(val taskId: Int) : NavKey
 @Composable
 fun RootNavigation() {
     val backStack = rememberNavBackStack(MainScreenKey)
-    val sharedViewModel = TaskViewModel()
+    val context = LocalContext.current
+    val sharedViewModel = remember { TaskViewModel(context.applicationContext as Application) }
 
     NavDisplay(
         modifier = Modifier
@@ -86,7 +94,16 @@ fun RootNavigation() {
                             onDeleteClick = {
                                 backStack.removeLast()
                                 sharedViewModel.deleteTask(targetKey.taskId)
+                            },
+                            onEditClick = {
+                                backStack.add(EditTaskScreenKey(targetKey.taskId))
                             }
+                        )
+
+                        is EditTaskScreenKey -> EditTaskScreen(
+                            taskId = targetKey.taskId,
+                            viewModel = sharedViewModel,
+                            onBackClick = { backStack.removeLast() }
                         )
 
                     }

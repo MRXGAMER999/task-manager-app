@@ -47,6 +47,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.taskv4.ViewModel.TaskViewModel
+import com.example.taskv4.preview.previewTaskViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -335,5 +336,5 @@ fun TaskDetailsScreen(
 @Preview(showSystemUi = true)
 @Composable
 fun TaskDetailsScreenPreview(){
-    TaskDetailsScreen(taskId = 1)
+    TaskDetailsScreen(taskId = 1, viewModel = previewTaskViewModel())
 }

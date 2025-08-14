@@ -37,6 +37,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.text.font.FontWeight
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.taskv4.preview.previewTaskViewModel
 import com.example.taskv4.Components.TaskCard
 import com.example.taskv4.ViewModel.TaskViewModel
 import androidx.compose.ui.tooling.preview.Preview
@@ -175,6 +176,7 @@ fun MainScreen(
 fun MainScreenPreview() {
     MaterialTheme(colorScheme = darkColorScheme()) {
         MainScreen(
+            viewModel = previewTaskViewModel(),
             onfloatingActionButtonClick = { },
             onTaskClick = { }
         )
